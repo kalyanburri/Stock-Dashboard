@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="but.css">
+        <title>Stock Data</title>
+        <style>
+            #filter{
+                font-size: 20px;
+            }
+            #myChart{
+                position: relative;
+                margin-top: 30px;
+                bottom: 20px;
+                z-index: 0;
+            }
+            button{
+                background-color: rgb(31, 157, 189);
+            }
+            button:hover{
+                background-color: rgb(145, 251, 255);
+                box-shadow: 0px 0px 10px rgb(144, 246, 255),0px 0px 40px rgb(144, 246, 255),0px 0px 80px rgb(144, 246, 255) ;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="header">
+            <li><a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQgDNXarhcKg7kppu26lzfVHjMP0FZTOdo9Pw&usqp=CAU" style="width:60px; height: 60px; opacity: 0.5;"></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li style="padding-left:10px;"><a href="about.html">About</a></li>
+            <li style="margin-left: auto; font-size: 30px;"><a href="fav.html"><span style="font-size: 40px;">&#9733</span>Favourites</a></li>
+        </ul>
+        <h id="titl"></h>
+        <label for="filter" style="font-size: 30px;">Filter by:</label>
+        <select name="Filter" id="filter">
+            <option value="TIME_SERIES_INTRADAY&symbol=IBM&interval=5min">intraday</option>
+            <option value="TIME_SERIES_DAILY" selected>Daily</option>
+            <option value="TIME_SERIES_WEEKLY">Weekly</option>
+            <option value="TIME_SERIES_MONTHLY">Monthly</option>
+        </select>
+        <button onclick="buttonclick()" value="show" style="font-size: 20px;">show</button>
+        <div style="width: 95vw; height: 40vh;">
+        <div id="myChart"></div>
+        </div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script src="sec.js"></script>
+    </body>
+</html>

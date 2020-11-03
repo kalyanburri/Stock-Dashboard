@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <link rel="stylesheet" href="but.css">
+        <title>Favourites</title>
+        <style>
+            .favourites{
+                margin-top: 120px;
+                display: block;
+            }
+            .favourites a{
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 10px;
+                font-size: 26px;
+                display: block;
+                padding: 15px;
+                background-color: blue;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .favourites a:hover{
+                background-color: crimson;
+            }
+            @media screen and (max-width: 600px){
+                .favourites{
+                margin-top: 240px;
+                }
+            } 
+        </style>
+        <body>
+            <ul class="header">
+                <li><a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQgDNXarhcKg7kppu26lzfVHjMP0FZTOdo9Pw&usqp=CAU" style="width:60px; height: 60px; opacity: 0.5;"></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li style="padding-left:10px;"><a href="about.html">About</a></li>
+                <li style="margin-left: auto; font-size: 30px;"><a href="fav.html"><span style="font-size: 40px;">&#9733</span>Favourites</a></li>
+            </ul>
+            <div class="favourites"></div>
+            <script>
+                var fav_arr=JSON.parse(localStorage.fav);
+                var len=fav_arr.length;
+                var obj=document.getElementsByClassName("favourites")[0];
+                for(let i=0;i<len;i++){
+                    let x=document.createElement('a');
+                    x.innerHTML=fav_arr[i].slice(1,-1);
+                    x.href="sec.html";
+                    x.addEventListener('click',fun(x));
+                    obj.appendChild(x);
+                }
+                function fun(x){
+                    return function(){
+                        sessionStorage.inp=x.innerHTML;
+                        sessionStorage.name=x.innerHTML
+                    }
+                }
+            </script>
+        </body>
+    </head>
