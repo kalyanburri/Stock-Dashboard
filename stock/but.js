@@ -32,8 +32,8 @@ function rem(){
   }
   console.log(favour[0]);
 }
-// var bd=document.getElementsByTagName('body')[0];
-// bd.addEventListener('click',pop_close);
+
+//close popup
 function pop_close(){
   document.getElementsByClassName("popup1")[0].style.display="none";
   document.getElementsByTagName('body')[0].style.overflow="auto";
@@ -41,16 +41,17 @@ function pop_close(){
 var srchar=[];
 document.getElementsByClassName('content')[0].innerHTML=document.getElementById('inp').value;
 var timeout = null;
-////////
+
+//Search function
 function search() {
   if (timeout) {  
     clearTimeout(timeout);
   }
   timeout = setTimeout(function() {
-     search1();
+     searchHelper();
   }, 800);
 }
-function search1(){
+function searchHelper(){
   document.getElementsByClassName('col')[0].innerHTML="";
   srchar=[];
   var x=document.getElementById("inp").value;
@@ -84,7 +85,6 @@ function show(txt){
     ch.setAttribute("class","boxes");
     ch.setAttribute("id",nm);
     ch.addEventListener("click",clik(nm));
-   // ch.addEventListener("mouseover",hov(nm));
     f.innerHTML="&#10084";
     styl_fav(f);
     document.getElementsByClassName('col')[0].appendChild(ch);
@@ -140,7 +140,10 @@ function clik(id){
  }
  function styl_fav(f){
   f.style.color="white";
-  f.style.fontSize="60px";
+  let str = (window.screen.width/30).toString()+"px";
+  f.style.fontSize = str;
+  console.log(toString(window.screen.width));
+  console.log(typeof(f.style.fontSize));
   f.style.display="relative";
   f.style.margin="0";
   f.style.bottom="30px";
@@ -148,6 +151,8 @@ function clik(id){
  function short(tx){
      document.getElementById("inp").value=tx;
  } 
+
+ //Alpha vantage http request
 function get_val(){
   console.log("hello");
   const xhr=new XMLHttpRequest();

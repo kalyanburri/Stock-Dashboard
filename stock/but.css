@@ -21,6 +21,7 @@ body{
   width: 100%;
   align-items:center;
   font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
   box-shadow:10px 10px 5px grey;
   background-image: linear-gradient(to right,#7b4397,#dc2430);
 }

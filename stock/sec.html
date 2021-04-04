@@ -13,9 +13,15 @@
             #myChart{
                 position: relative;
                 margin-top: 30px;
+                width: device-width;
                 bottom: 20px;
                 z-index: 0;
             }
+            @media screen and (max-width: 440px) {
+                    #myChart{
+                       height: 260px; 
+                    }
+                }
             button{
                 background-color: rgb(31, 157, 189);
             }
@@ -28,9 +34,9 @@
     <body>
         <ul class="header">
             <li><a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQgDNXarhcKg7kppu26lzfVHjMP0FZTOdo9Pw&usqp=CAU" style="width:60px; height: 60px; opacity: 0.5;"></a></li>
-            <li><a href="index.html">Home</a></li>
-            <li style="padding-left:10px;"><a href="about.html">About</a></li>
-            <li style="margin-left: auto; font-size: 30px;"><a href="fav.html"><span style="font-size: 40px;">&#9733</span>Favourites</a></li>
+            <li style="padding: 10px; font-size: 30px;"><a href="index.html">Home</a></li>
+            <li style="padding-left:10px; font-size: 30px;"><a href="about.html">About</a></li>
+            <li style="margin-left: auto; font-size: 30px;"><a href="fav.html"><span style="font-size: 30px;">&#10084</span>Favourites</a></li>
         </ul>
         <h id="titl"></h>
         <label for="filter" style="font-size: 30px;">Filter by:</label>
@@ -41,7 +47,7 @@
             <option value="TIME_SERIES_MONTHLY">Monthly</option>
         </select>
         <button onclick="buttonclick()" value="show" style="font-size: 20px;">show</button>
-        <div style="width: 95vw; height: 40vh;">
+        <div calss = "chart" style="height: 40vh;">
         <div id="myChart"></div>
         </div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
