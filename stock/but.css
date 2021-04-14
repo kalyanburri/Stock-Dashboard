@@ -2,6 +2,25 @@
 body{
   overflow: auto;
 }
+.trans{
+  background-color: #000000;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  opacity: 1;
+  animation: transAnime 0.5s ;
+}
+@keyframes transAnime {
+  100% {opacity: 0;}
+}
+.anime.is-active{
+  opacity: 1;
+  pointer-events: all;
+
+}
 .background{  
   width:100%;
   height:100%;
@@ -23,7 +42,24 @@ body{
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
   box-shadow:10px 10px 5px grey;
-  background-image: linear-gradient(to right,#7b4397,#dc2430);
+  background-color: white;
+  /* background-image: linear-gradient(to right,#7b4397,#dc2430); */
+}
+.header :not(:first-child) a:hover{
+  padding: 5px;
+  border-radius: 10px;
+  animation: menuAnimator 700ms;
+  background-color: #000000;
+  color: white;
+
+}
+@keyframes menuAnimator {
+  0%{background-color: white;
+     color: #000;
+  }
+  100%{background-color: #000000;
+       color: white;
+  }
 }
 li{
   cursor: pointer;
@@ -47,7 +83,19 @@ a{
   flex-wrap: wrap;
 }
 .boxes{
-  transition: transform 200ms;
+  color: #0a0808;
+  padding:10px;
+  height:200px;
+  width: 180px;
+
+  align-items: center;
+  border: 1px solid #cccccc;
+  border-radius: 20px;
+  margin: 10px;
+  box-shadow: 10px 10px 5px grey;
+  background-color: rgba(255, 255,255, 0.05);
+  cursor: pointer;
+  transition: transform 100ms;
 }
 .boxes:hover{
   transform: scale(1.15);
@@ -127,6 +175,7 @@ a{
 }
 #titl{
   display: block;
+  white-space: initial;
   margin-top: 120px;
   align-self: center; 
   font-size: 30px;
@@ -145,9 +194,17 @@ a span{
   #titl{
       margin-top: 250px;
       height: 30%;
+      text-overflow:unset;
+      font-weight:550;
+      font-size:larger;
   }
   .col{
     display: inline-flex;
+  }
+  .boxes{
+    height: 160px;
+    width: 143px;
+    font-size: small;
   }
   .popup{
     width:70vw;
@@ -173,7 +230,7 @@ a span{
     font-size: 30px;
   }
   .menu,.main{
-    margin-top: 45vh;
+    margin-top: 34vh;
   }
 }
 .search:hover{
@@ -184,4 +241,22 @@ a span{
   background-position: center;
   background-size: 37px 37px;
   background-image: url('https://st2.depositphotos.com/1756201/11404/v/950/depositphotos_114047434-stock-illustration-magnifying-glass-icon-search-icon.jpg');
+}
+
+@media screen and (max-width:440px){
+  #titl{
+    font-size: large;
+  }
+  .menu,.main{
+    margin-top: 29vh;
+  }
+  .boxes{
+    height: 100px;
+    width: 90px;
+    font-size: xx-small;
+  }
+  svg{
+    width: 30px;
+    height: 30px;
+  }
 }

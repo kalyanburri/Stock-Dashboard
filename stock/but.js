@@ -1,5 +1,10 @@
 var favour=[];
 window.onload=function(){
+  // var animeDoc = document.getElementsByClassName('trans')[0];
+  // setTimeout( () =>{
+  //   document.removeChild('trans');
+  // }
+  // ,400);
   search();
   if(!localStorage.fav){
     localStorage.fav="";
@@ -14,7 +19,7 @@ function add(){
     }
   }
   favour.push("'"+sessionStorage.inp+"'");
-  document.getElementById(sessionStorage.inp).lastChild.style.color="red";
+  document.getElementById(sessionStorage.inp).style.color="red";
   localStorage.fav=JSON.stringify(favour);
   console.log(localStorage.fav);
 }
@@ -26,7 +31,7 @@ function rem(){
     if(favour[i]==key){
       console.log(favour[i]);
         favour.splice(i,1);
-        document.getElementById(sessionStorage.inp).lastChild.style.color="white";
+        document.getElementById(sessionStorage.inp).style.color="white";
         localStorage.fav=JSON.stringify(favour);
     }
   }
@@ -81,12 +86,9 @@ function show(txt){
     srchar.push(nm);
     let ch=document.createElement('a');
     let f=document.createElement('p');
-    styl(ch);
     ch.setAttribute("class","boxes");
     ch.setAttribute("id",nm);
     ch.addEventListener("click",clik(nm));
-    f.innerHTML="&#10084";
-    styl_fav(f);
     document.getElementsByClassName('col')[0].appendChild(ch);
     var p=document.createElement('p');
     p.innerHTML=txt.ResultSet.Result[i].name+"<br>"+"SED:"+txt.ResultSet.Result[i].exchDisp
@@ -95,7 +97,7 @@ function show(txt){
     document.getElementById(nm).appendChild(p);
     ch.appendChild(f);
     if(localStorage.fav.search("'"+nm+"'")!=-1){
-      ch.lastChild.style.color="red";
+      ch.style.color="red";
       console.log("true");
     }
   }
@@ -126,28 +128,7 @@ function clik(id){
   return true;
   };
  }
- function styl(ch){
-  ch.style.padding="10px";
-  ch.style.height="200px";
-  ch.style.textAlign="center";
-  ch.style.width="180px";
-  ch.style.color="rgb(14, 6, 48)";
-  ch.style.textDecoration="none";
-  ch.style.backgroundImage="linear-gradient(to right,#94bbe9,#eeaeca)";
-  ch.style.margin="10px";
-  ch.style.boxShadow="10px 10px 5px grey";
-  ch.style.cursor="pointer";
- }
- function styl_fav(f){
-  f.style.color="white";
-  let str = (window.screen.width/30).toString()+"px";
-  f.style.fontSize = str;
-  console.log(toString(window.screen.width));
-  console.log(typeof(f.style.fontSize));
-  f.style.display="relative";
-  f.style.margin="0";
-  f.style.bottom="30px";
- }
+
  function short(tx){
      document.getElementById("inp").value=tx;
  } 

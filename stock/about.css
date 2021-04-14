@@ -1,0 +1,44 @@
+.svg-animation{
+    /* width: 300px;
+    height: 300px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+
+}
+.svg-animation svg{
+    width: 100%;
+}
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0%;
+    width: 60%;
+    height: 60%;
+}
+#outerhex{
+    animation: outhexanim 2s infinite;
+    transform-origin: center;
+}
+#innerhex{
+    animation: inhexanim 2s infinite;
+    transform-origin: center;
+}
+
+@keyframes inhexanim {
+    0% {fill: red;
+    }
+    100% {fill: #00E3E1;
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes outhexanim {
+    0% {fill: red;
+    }
+    100% {fill: #00E3E1;
+        transform: rotateZ(-360deg);
+        
+    }
+}

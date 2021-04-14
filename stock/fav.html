@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <link rel="stylesheet" href="but.css">
+        <link rel="stylesheet" href="about.css">
+        <link rel="icon" href="images/drawing.svg" type="image/icon type">
         <title>Favourites</title>
         <style>
             .favourites{
@@ -20,13 +22,24 @@
                 font-size: 26px;
                 display: block;
                 padding: 15px;
-                background-color: blue;
+                background-color: rgb(78, 78, 88);
                 text-align: center;
                 text-decoration: none;
                 cursor: pointer;
             }
             .favourites a:hover{
                 background-color: crimson;
+                box-shadow: 5px 8px;
+                animation-name: example;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                animation-delay: 0s;
+                animation-timing-function: ease-out;
+            }
+            @keyframes example {
+                0% {width: 80%;}
+                50% {width: 30%;}
+                100% {width: 80%;}
             }
             @media screen and (max-width: 600px){
                 .favourites{
@@ -35,14 +48,25 @@
             } 
         </style>
         <body>
+            <!-- <div class = "trans"></div> -->
             <ul class="header">
-                <li><a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQgDNXarhcKg7kppu26lzfVHjMP0FZTOdo9Pw&usqp=CAU" style="width:60px; height: 60px; opacity: 0.5;"></a></li>
+                <li><a href="index.html"><svg width="60" height="60" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle id = "circle" cx="60" cy="60" r="58.5" stroke="black" stroke-width="3"/>
+                    <path id = "outerhex" d="M109.029 32.8601L110 88.7367L61.4725 117L10 89.1979L10.9705 32.674L61.4749 4L109.029 32.8601Z" fill="#00E3E1" stroke="black" stroke-width="3"/>
+                    <path id = "innerhex" d="M97.2715 40.4319L98 79.9906L61.6044 100L23 80.3171L23.7279 40.3002L61.6062 20L97.2715 40.4319Z" fill="#00E3E1" stroke="white" stroke-width="3"/>
+                    <path id = "innertext" d="M41.4492 59.9082L51.8203 63.8457V68.1172L37.1074 61.5605V58.168L51.8203 51.6289V55.9004L41.4492 59.9082ZM55.549 73.1973H52.1916L62.2638 45.4062H65.6213L55.549 73.1973ZM77.348 59.8203L66.4847 55.8301V51.6289L81.6722 58.168V61.5605L66.4847 68.0996V63.8984L77.348 59.8203Z" fill="white"/>
+                    </svg>   </a></li>
                 <li><a href="index.html">Home</a></li>
                 <li style="padding-left:10px;"><a href="about.html">About</a></li>
-                <li style="margin-left: auto; font-size: 30px;"><a href="fav.html"><span style="font-size: 40px;">&#10084</span>Favourites</a></li>
+                <li style="margin-left: auto; font-size: 30px;"><a href="fav.html">Favourites</a></li>
             </ul>
             <div class="favourites"></div>
             <script>
+                var animeDoc = document.getElementsByClassName('trans')[0];
+                setTimeout( () =>{
+                    animeDoc.style.opacity = 0;
+                }
+                ,400);
                 var fav_arr=JSON.parse(localStorage.fav);
                 var len=fav_arr.length;
                 var obj=document.getElementsByClassName("favourites")[0];
