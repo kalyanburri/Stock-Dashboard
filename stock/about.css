@@ -108,12 +108,19 @@
 .social .button:hover{
     width: 200px;
 }
+.titl{
+    font-size: 70px;
+    text-align: center;
+    line-height: 100px;
+    font-weight: 600;
+    margin: 0%;
+}
 @media screen and (max-width:600px){
     .logo{
         display: none;
     }
-    .title{
-        margin-top: 400px;
+    .titl{
+        margin-top: 300px;
         margin-bottom: 10px;
     }
 }
