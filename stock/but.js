@@ -1,10 +1,5 @@
 var favour=[];
 window.onload=function(){
-  // var animeDoc = document.getElementsByClassName('trans')[0];
-  // setTimeout( () =>{
-  //   document.removeChild('trans');
-  // }
-  // ,400);
   search();
   if(!localStorage.fav){
     localStorage.fav="";
@@ -35,7 +30,6 @@ function rem(){
         localStorage.fav=JSON.stringify(favour);
     }
   }
-  console.log(favour[0]);
 }
 
 //close popup
@@ -112,18 +106,12 @@ function clik(id){
   return function(){
   get_val();
   document.getElementsByClassName("popup1")[0].style.display="flex";
+  document.getElementsByClassName("background")[0].style.filter = "blur(20px)";
   sessionStorage.inp=(id);
   sessionStorage.name=document.getElementById(id).firstChild.innerText;
   document.getElementById("pop_h").innerHTML=id;
   document.getElementsByClassName("conten")[0].innerHTML=JSON.stringify(sessionStorage.text1).slice(1,-1);
-  if(Number(sessionStorage.cl)<Number(sessionStorage.op)){
-    document.getElementsByClassName("popup")[0].style.backgroundImage="linear-gradient(#ff6130,white)";
-    console.log("decreased")
-  }
-  else{
-    document.getElementsByClassName("popup")[0].style.backgroundImage="linear-gradient(#33cffa,#b3f1ff)";
-    console.log("increased");
-  }
+  document.getElementsByClassName("popup")[0].style.backgroundImage="linear-gradient(#33cffa,#b3f1ff)";
   document.getElementsByTagName('body')[0].style.overflow="hidden";
   return true;
   };

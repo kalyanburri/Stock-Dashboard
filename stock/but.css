@@ -1,6 +1,7 @@
 * {box-sizing: border-box;}
 body{
   overflow: auto;
+  background-color: #f4f7ff;
 }
 .trans{
   background-color: #000000;
@@ -42,7 +43,7 @@ body{
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
   box-shadow:10px 10px 5px grey;
-  background-color: white;
+  background-color: #ebf0fc;
   /* background-image: linear-gradient(to right,#7b4397,#dc2430); */
 }
 .header :not(:first-child) a:hover{
@@ -54,7 +55,7 @@ body{
 
 }
 @keyframes menuAnimator {
-  0%{background-color: white;
+  0%{background-color: #f4f7ff;
      color: #000;
   }
   100%{background-color: #000000;
@@ -134,8 +135,14 @@ a{
   
 .popup h2 {
   color: #333;
-  display: inline;
   font-family: Tahoma, Arial, sans-serif;
+}
+.popupHead{
+  display: flex;
+  justify-content: space-between;
+}
+.conten{
+  text-overflow: ellipsis;
 }
 .popup .close {
   position: relative;
@@ -208,7 +215,7 @@ a span{
   }
   .popup{
     width:70vw;
-    height:62vh;
+    height:35vh;
     margin-top: 170px;
   }
   #inp{
@@ -248,7 +255,7 @@ a span{
     font-size: large;
   }
   .menu,.main{
-    margin-top: 29vh;
+    margin-top: 25vh;
   }
   .boxes{
     height: 100px;
@@ -258,5 +265,12 @@ a span{
   svg{
     width: 30px;
     height: 30px;
+  }
+}
+
+@media screen and (max-height:600px){
+  .popup .popupButtons{
+    display: flex;
+    justify-content: space-between;
   }
 }
