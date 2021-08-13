@@ -62,15 +62,14 @@ function searchHelper(){
   document.getElementsByClassName("content")[0].innerHTML='Showing results for "'+x+'"';
   var data = null;
   var xhr = new XMLHttpRequest();
-  xhr.withCredentials = true;
+  //xhr.withCredentials = true;
   xhr.addEventListener("readystatechange", function () {
   if (this.readyState === this.DONE) {
     var txt=JSON.parse(this.responseText);
     show(txt);
     }});
-  xhr.open("GET","https://yahoo-finance-low-latency.p.rapidapi.com/v6/finance/autocomplete?lang=en&region=US&query="+x+"",true);
-  xhr.setRequestHeader("x-rapidapi-host", "yahoo-finance-low-latency.p.rapidapi.com");
-  xhr.setRequestHeader("x-rapidapi-key", "88c5dbf86cmshea49f711696deb7p166d62jsn7b1635cba66b");
+  xhr.open("GET","https://yfapi.net/v6/finance/autocomplete?region=US&lang=en&query="+x,true);
+  xhr.setRequestHeader("X-API-KEY", "otQ3YtMCXVa66dA5jPdpj5BmUc5KwNZNaAj5AAxm");
   xhr.send(data);
 }
 function show(txt){
